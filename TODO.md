@@ -1,0 +1,15 @@
+# Entregas do Pontar
+
+- [x] **Base limpa e persistência auditável:** o sistema inicia sem registros de ponto, saldos, meses, dias ou dados de Setembro/TOTVS; somente a ação explícita “Configurar sistema” cria configurações de perfil, sem inserir batidas. Estruturas persistentes cobrem configuração, jornadas, registros, abonos, histórico de viradas, auditoria, snapshots e períodos fechados.
+- [x] **Jornadas e motor de tolerância:** cadastrar nome de horário, dias da semana e até cinco turnos/dia; calcular jornada prevista; configurar tolerância por marco; preservar batida real e aplicar “dentro da tolerância = zero, fora = diferença real” para entradas e saídas, sem arredondar.
+- [x] **Replicação de jornada:** no cadastro de horários, copiar os marcos e tolerâncias de um dia para os demais dias selecionados, gerando novos identificadores e ativando os destinos sem criar registros de ponto.
+- [x] **Ponto diário móvel:** Central do Dia com relógio, data, estado, jornada, contador, previsão, linha do tempo e “Registrar agora”; a ação identifica a próxima batida, usa hora do servidor e nunca registra automaticamente.
+- [x] **Registros e segurança:** criar/editar registro manual com data, até cinco pares, observação, tipo e verificado; validar pares, sequência, sobreposição e duplicidade; excluir com confirmação, manter histórico e permitir restauração quando cabível.
+- [x] **Análises sem dados inventados:** filtros Hoje, semana, mês e período; resumos diário/semanal/mensal; dias sem registro não se tornam falta; calendário, busca, diagnóstico, alertas e simulador não alteram dados reais.
+- [x] **Calendário de exceções:** marcar intervalos como feriado ou lançar férias; preservar batidas existentes, criar lançamento explícito sem batidas quando necessário, exibir no calendário e registrar auditoria.
+- [x] **Replicação e entrada de horários:** aceitar horários digitados como `1700` e normalizá-los para `17:00`; depois de preencher um dia, permitir selecionar explicitamente os demais dias que receberão os mesmos horários e tolerâncias.
+- [x] **Preferências regionais:** permitir escolher os fusos oficiais do Brasil, os formatos `DD/MM/YYYY`, `YYYY-MM-DD` ou `DD.MM.YYYY`, e hora com minutos ou com minutos e segundos; persistir e aplicar essas preferências nas telas e no CSV.
+- [x] **API do Preview:** permitir o cabeçalho `X-Pontar-Device` no CORS para que configurações e demais requisições tRPC funcionem no iframe HTTPS sem `Failed to fetch`.
+- [x] **Banco de horas rastreável:** saldo inicial e movimentos por período; ajuste com motivo; virada transportada, zerada ou ajustada; histórico, snapshots, fechamento/reabertura e auditoria sem sobrescrever saldo silenciosamente.
+- [x] **Abonos, relatórios e saída:** abonos com status e impacto quando aplicável; relatório de período, CSV e PDF; importação com prévia de novos, duplicados, conflitos e inválidos.
+- [x] **Experiência e Android futuro:** tema claro/escuro, interação móvel de uma mão, ícone nativo próprio, API/Metro funcionais, tipagem limpa e configuração Expo preservada para futura build Android.
